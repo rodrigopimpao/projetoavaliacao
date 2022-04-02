@@ -17,9 +17,7 @@ namespace Anima.Projeto.Application.Commands
         protected override AddMediaResponse Changes(AddMediaRequest request)
         {
 
-            var media = new Media(request.Total);
-
-            media.UsuarioId = request.UsuarioId;
+            var media = new Media(request.Total, request.UsuarioId);
 
             _repository.Add(media);
 

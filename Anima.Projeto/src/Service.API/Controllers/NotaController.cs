@@ -45,6 +45,18 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
         }
 
+        [HttpPut("{usuarioId}/{avaliacaoId}")]
+        [Authorize(Roles = "Professor")]
+        public IActionResult UpdateByEstudanteAvaliacao(Guid usuarioId, Guid avaliacaoId, UpdateNotaEstudanteAvaliacaoRequest request)
+        {
+            var cmd = new UpdateNotaEstudanteAvaliacaoCommand(_wrepository);
+            request.setUsuarioId(usuarioId);
+            request.setAvaliacaoId(avaliacaoId);
+            var response = cmd.Handle(request);
+
+            return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
+        }
+
         [HttpGet("{id}")]
         [Authorize]
         public IActionResult GetById([FromRoute] Guid id)

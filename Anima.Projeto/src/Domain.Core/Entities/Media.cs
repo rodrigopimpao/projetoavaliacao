@@ -8,9 +8,10 @@ namespace Anima.Projeto.Domain.Core.Entities
     {
         private Media() { }
 
-        public Media(double total) : base(Guid.NewGuid())
+        public Media(double total, Guid usuarioId) : base(Guid.NewGuid())
         {
             Total = total;
+            UsuarioId = usuarioId;
         }
 
         public double Total { get; set; }

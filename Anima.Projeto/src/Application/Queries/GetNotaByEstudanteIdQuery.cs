@@ -14,9 +14,8 @@ namespace Anima.Projeto.Application.Queries
         public override GetNotaByIdResponse Handle(GetNotaByIdRequest request)
         {
 
-            Nota nota = _repository.AsQueryable<Nota>(x => x.Usuario).FirstOrDefault(x => x.UsuarioId == request.EstudanteId);
-
-
+            Nota nota = _repository.AsQueryableString<Nota>("Usuario", "Avaliacao").FirstOrDefault(x => x.UsuarioId == request.EstudanteId);
+            
             var response = new GetNotaByIdResponse();
 
             if (nota == null)
@@ -34,7 +33,8 @@ namespace Anima.Projeto.Application.Queries
                 Valor = nota.Valor,
                 IsActive = nota.IsActive,
                 Estudante = nota.Usuario,
-                UpdatedAt = nota.UpdatedAt
+                UpdatedAt = nota.UpdatedAt,
+                Avaliacao = nota.Avaliacao
             };
 
         }

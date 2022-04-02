@@ -33,6 +33,20 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Professor")]
+        public IActionResult GetList()
+        {
+
+            var query = new GetAvaliacaoListQuery(_rrepository);
+
+            var request = new GetAvaliacaoByIdRequest();
+
+            var response = query.Handle(request);
+
+            return response.IsSuccess ? Ok(response) : BadRequest(new { errors = response.Errors });
+        }
+
         [HttpGet("{id}")]
         [Authorize]
         public IActionResult GetById([FromRoute] Guid id)

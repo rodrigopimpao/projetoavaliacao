@@ -21,6 +21,14 @@ namespace Anima.Projeto.Application.Commands
 
             Media media = _repository.AsQueryable<Media>().FirstOrDefault(x => x.Id == request.getId());
 
+            var response = new UpdateMediaResponse();
+
+            if (media == null)
+            {
+                response.AddError("Media não encontrada");
+                return response;
+            }
+
             media.Total = request.Total;
             
             return new UpdateMediaResponse

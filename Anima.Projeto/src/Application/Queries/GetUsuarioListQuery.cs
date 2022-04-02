@@ -18,9 +18,9 @@ namespace Anima.Projeto.Application.Queries
 
             var response = new GetUsuarioListResponse();
 
-            if (usuario == null)
+            if (!usuario.Any())
             {
-                response.AddError("Usuário não encontrado");
+                response.AddError("Nenhum usuário cadastrado");
                 return response;
             }
 

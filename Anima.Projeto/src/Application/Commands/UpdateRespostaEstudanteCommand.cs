@@ -20,6 +20,14 @@ namespace Anima.Projeto.Application.Commands
         {
             RespostaEstudante respostaEstudante = _repository.AsQueryable<RespostaEstudante>().FirstOrDefault(x => x.UsuarioId == request.getUsuarioId() && x.QuestaoId == request.getQuestaoId());
 
+            var response = new UpdateRespostaEstudanteResponse();
+
+            if (respostaEstudante == null)
+            {
+                response.AddError("Resposta não encontrada");
+                return response;
+            }
+
             respostaEstudante.AlternativaId = request.AlternativaId;
             
             return new UpdateRespostaEstudanteResponse

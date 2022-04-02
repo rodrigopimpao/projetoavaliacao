@@ -16,7 +16,7 @@ namespace Anima.Projeto.Domain.Core.Entities
         }
 
         public string Enunciado { get; set; }
-        [JsonIgnore]
+        
         public Guid AvaliacaoId { get; set; }
         [JsonIgnore]
         public Avaliacao Avaliacao { get; set; }

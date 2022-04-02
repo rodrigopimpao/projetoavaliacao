@@ -16,6 +16,14 @@ namespace Anima.Projeto.Application.Queries
 
             Media media = _repository.AsQueryableString<Media>("Usuario", "Usuario.Notas", "Usuario.Respostas").FirstOrDefault(x => x.Id == request.Id);
 
+            var response = new GetMediaByIdResponse();
+
+            if (media == null)
+            {
+                response.AddError("Media não encontrado");
+                return response;
+            }
+
             return new GetMediaByIdResponse
             {
                 Id = media.Id,

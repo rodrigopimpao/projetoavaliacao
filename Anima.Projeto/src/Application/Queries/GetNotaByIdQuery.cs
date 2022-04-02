@@ -15,21 +15,16 @@ namespace Anima.Projeto.Application.Queries
         {
 
 
-            IQueryable<Nota> resultado = _repository.AsQueryable<Nota>().Where(x => x.Id == request.Id);
+            Nota nota = _repository.AsQueryableString<Nota>("Usuario", "Avaliacao").FirstOrDefault(x => x.Id == request.Id);
 
-            Nota nota = resultado.FirstOrDefault();
 
-            IQueryable<Usuario> retornoEstudante = _repository.AsQueryable<Usuario>().Where(x => x.Id == nota.UsuarioId);
+            var response = new GetNotaByIdResponse();
 
-            Usuario estudate = retornoEstudante.FirstOrDefault();
-
-            nota.Usuario = estudate;
-
-            IQueryable<Avaliacao> retornoAvaliacao = _repository.AsQueryable<Avaliacao>().Where(x => x.Id == nota.AvaliacaoId);
-
-            Avaliacao avaliacao = retornoAvaliacao.FirstOrDefault();
-
-            nota.Avaliacao = avaliacao;
+            if (nota == null)
+            {
+                response.AddError("Nota não encontrado");
+                return response;
+            }
 
             return new GetNotaByIdResponse
             {

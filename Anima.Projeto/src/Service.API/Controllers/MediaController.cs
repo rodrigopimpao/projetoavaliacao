@@ -45,7 +45,7 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
         }
 
-        [HttpPut("{id}/estudante")]
+        [HttpPut("estudante/{id}")]
         [Authorize(Roles = "Professor")]
         public IActionResult UpdateMediaEstudante(Guid id, UpdateMediaEstudanteRequest request)
         {

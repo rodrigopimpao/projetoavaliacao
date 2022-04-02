@@ -8,20 +8,19 @@ using System.Linq;
 namespace Anima.Projeto.Application.Commands
 {
     // os comandos são instruçoes que alteram o estado do servidor
-    public class UpdateNotaCommand : Command<UpdateNotaRequest, UpdateNotaResponse>
+    public class UpdateNotaEstudanteAvaliacaoCommand : Command<UpdateNotaEstudanteAvaliacaoRequest, UpdateNotaEstudanteAvaliacaoResponse>
     {
-        public UpdateNotaCommand(IWriteRepository repository) : base(repository)
+        public UpdateNotaEstudanteAvaliacaoCommand(IWriteRepository repository) : base(repository)
         {
         }
 
         //todo metodo handle tem que caracterizar um transação
-        protected override UpdateNotaResponse Changes(UpdateNotaRequest request)
+        protected override UpdateNotaEstudanteAvaliacaoResponse Changes(UpdateNotaEstudanteAvaliacaoRequest request)
         {
 
-            Nota nota = _repository.AsQueryable<Nota>().FirstOrDefault(x => x.Id == request.getId());
+            Nota nota = _repository.AsQueryable<Nota>().FirstOrDefault(x => x.UsuarioId == request.getUsuarioId() && x.AvaliacaoId == request.getAvaliacaoId());
 
-
-            var response = new UpdateNotaResponse();
+            var response = new UpdateNotaEstudanteAvaliacaoResponse();
 
             if (nota == null)
             {
@@ -32,7 +31,7 @@ namespace Anima.Projeto.Application.Commands
 
             nota.Valor = request.Valor;
             
-            return new UpdateNotaResponse
+            return new UpdateNotaEstudanteAvaliacaoResponse
             {
                 Id = nota.Id,
                 UpdatedAt = nota.UpdatedAt

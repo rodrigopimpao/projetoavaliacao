@@ -9,7 +9,5 @@ namespace Anima.Projeto.Application.Requests
 
         public Guid UsuarioId { get; set; }
 
-        public string Token { get; set; }
-
     }
 }
