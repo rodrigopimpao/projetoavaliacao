@@ -1,6 +1,6 @@
 # Projeto Avaliação Ecoa
 
-## Diagrama Entidade Relacionamento(ER) da aplicação
+## Diagrama Entidade Relacionamento(ER) da aplicação / Sql Dados Base / Planilha com dados do Sql
 
 https://github.com/rodrigopimpao/projetoavaliacao/tree/main/Docs
 
