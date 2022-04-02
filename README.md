@@ -36,3 +36,26 @@ curl --request POST \
 }'
 ```
 
+### Realizar Login Professor / Open
+Pegar o token para uso em requests de função 'Professor'
+
+curl --request POST \
+  --url http://localhost:5000/api/Usuario/login \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"login": "professor",
+	"senha": "12345"
+}'
+
+### Realizar Login Estudante / Open
+Pegar o token para uso em requests de função 'Estudante'
+
+curl --request POST \
+  --url http://localhost:5000/api/Usuario/login \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"login": "estudante",
+	"senha": "12345"
+}'
+
+
