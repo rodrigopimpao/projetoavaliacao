@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Domain.Core": {
+      "commandName": "Project"
+    },
+    "Perfil 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\rodri\\source\\repos\\gama-anima-mentoria-03-2022\\Anima.Projeto\\src\\Service.API\\bin\\Debug\\net5.0\\Anima.Projeto.Service.API.exe"
+    }
+  }
+}

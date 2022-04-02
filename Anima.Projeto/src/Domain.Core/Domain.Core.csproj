@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Anima.Projeto.Domain.Core</RootNamespace>
+    <AssemblyName>Anima.Projeto.Domain.Core</AssemblyName>
+    <Configurations>Debug;Release;Dev</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Shared\Domain.Shared.csproj" />
+  </ItemGroup>
+</Project>
