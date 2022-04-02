@@ -1,0 +1,10 @@
+select * from TB_USUARIO U 
+inner join TB_USUARIO_AVALIACAO UA On UA.USUARIO_ID = U.ID
+inner join TB_AVALIACAO A On UA.AVALIACAO_ID = A.ID
+inner join TB_QUESTAO Q On A.ID = Q.AVALIACAO_ID
+inner join TB_ALTERNATIVA AL On Q.ID = AL.QUESTAO_ID
+left join TB_NOTA N On N.USUARIO_ID = U.ID and N.AVALIACAO_ID = A.ID
+left join TB_MEDIA M On M.USUARIO_ID = U.ID
+where 
+U.FUNCAO = 'Estudante'
+order by A.NOME, Q.ENUNCIADO, AL.DESCRICAO;

@@ -16,7 +16,12 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence
 
             //services.AddDbContext<AnimaContext>(options => options.UseSqlServer("Server=localhost;Database=DB_ANIMA;User Id=sa;Password=MyPass@word;"));
 
-            services.AddDbContext<AnimaContext>(options => options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=projdb;Username=postgres;Password=postgres;"));
+            //services.AddDbContext<AnimaContext>(options => options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=projdb;Username=postgres;Password=postgres;"));
+
+            services.AddDbContext<AnimaContext>(options =>
+                options.UseSqlite("Data Source=Database/projeto.db")
+            );
+
 
             services.AddScoped<IWriteRepository, WriteRepository>();
             services.AddScoped<IReadRepository, ReadRepository>();
