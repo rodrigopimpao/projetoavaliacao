@@ -46,6 +46,20 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Ok(response) : BadRequest(new { errors = response.Errors });
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Professor")]
+        public IActionResult GetList()
+        {
+
+            var query = new GetUsuarioListQuery(_rrepository);
+
+            var request = new GetUsuarioByIdRequest();
+
+            var response = query.Handle(request);
+
+            return response.IsSuccess ? Ok(response) : BadRequest(new { errors = response.Errors });
+        }
+
         [HttpPost("login")]
         public IActionResult Login(GetUsuarioByLoginRequest request)
         {

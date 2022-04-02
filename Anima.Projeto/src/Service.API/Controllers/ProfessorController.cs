@@ -2,6 +2,7 @@ using System;
 using Anima.Projeto.Application.Queries;
 using Anima.Projeto.Application.Requests;
 using Anima.Projeto.Domain.Shared.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Anima.Projeto.Service.API.Controllers
@@ -20,7 +21,8 @@ namespace Anima.Projeto.Service.API.Controllers
         }
 
        
-        [HttpGet("{id}")]        
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Professor")]
         public IActionResult GetById([FromRoute] Guid id)
         {
 

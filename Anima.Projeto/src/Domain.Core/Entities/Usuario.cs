@@ -20,6 +20,7 @@ namespace Anima.Projeto.Domain.Core.Entities
         }
 
         public string Login { get; set; }
+        [JsonIgnore]
         public string Senha { get; set; }
         public string Funcao { get; set; }
 
