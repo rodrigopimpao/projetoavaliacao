@@ -61,4 +61,22 @@ curl --request POST \
 	"senha": "12345"
 }'
 ```
+### Listar Usuários / TOKEN Professor
+```console
+curl --request GET \
+  --url http://localhost:5000/api/Usuario \
+  --header 'Authorization: Bearer <TOKEN>'
+```
 
+### Busca Estudante por Id / TOKEN Professor
+
+curl --request GET \
+  --url http://localhost:5000/api/Estudante/<ID_ESTUDANTE> \
+  --header 'Authorization: Bearer <TOKEN>'
+	
+### Busca Professor por Id / TOKEN Professor
+
+curl --request GET \
+  --url http://localhost:5000/api/Professor/<ID_PROFESSOR> \
+  --header 'Authorization: Bearer <TOKEN>'
+	
