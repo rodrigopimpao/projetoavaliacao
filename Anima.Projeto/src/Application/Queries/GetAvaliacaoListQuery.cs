@@ -14,15 +14,15 @@ namespace Anima.Projeto.Application.Queries
         }
         public override GetAvaliacaoListResponse Handle(GetAvaliacaoByIdRequest request)
         {
-            List<Avaliacao> avaliacao = _repository.AsQueryable<Avaliacao>().ToList();
+            List<Avaliacao> avaliacao = _repository.AsQueryableString<Avaliacao>("Notas").OrderBy(x => x.Nome).ToList();
 
             var response = new GetAvaliacaoListResponse();
 
-            if (!avaliacao.Any())
-            {
-                response.AddError("Nenhuma avaliação cadastrada");
-                return response;
-            }
+            //if (!avaliacao.Any())
+            //{
+            //    response.AddError("Nenhuma avaliação cadastrada");
+            //    return response;
+            //}
 
             return new GetAvaliacaoListResponse
             {

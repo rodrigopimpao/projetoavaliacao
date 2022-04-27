@@ -19,8 +19,7 @@ namespace Anima.Projeto.Application.Queries
 
 
             Avaliacao avaliacao = _repository.AsQueryableString<Avaliacao>("Questaos", "Questaos.Alternativas", "Notas").SingleOrDefault(x => x.Id == request.Id);
-            //var Questaos = _repository.AsQueryable<Questao>(x => x.Avaliacao, y => y.Alternativas).Where(x => x.Avaliacao.Id == request.Id).Where(y => y.Alternativas.Any() == true);
-
+            
             var response = new GetAvaliacaoByIdResponse();
 
             if (avaliacao == null)

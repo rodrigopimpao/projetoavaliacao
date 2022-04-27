@@ -17,7 +17,7 @@ namespace Anima.Projeto.Domain.Core.Entities
 
         public double Valor { get; set; }
 
-        [JsonIgnore]
+        
         public Guid UsuarioId { get; set; }
         [JsonIgnore]
         public Usuario Usuario { get; set; }

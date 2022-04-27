@@ -23,7 +23,8 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence.Configurations
                 .Property(x => x.Descricao)
                 .IsRequired()
                 .HasColumnName("DESCRICAO");
-         }
+
+        }
 
         //exemplo para customizar entidades com chave composta
         //public override void ConfigureKey(EntityTypeBuilder<Customer> builder)

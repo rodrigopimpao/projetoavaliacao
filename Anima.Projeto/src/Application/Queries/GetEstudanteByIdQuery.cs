@@ -16,7 +16,7 @@ namespace Anima.Projeto.Application.Queries
         }
         public override GetUsuarioByIdResponse Handle(GetUsuarioByIdRequest request)
         {
-            Usuario estudante = _repository.AsQueryable<Usuario>(x => x.Notas, x => x.Media, x => x.UsuarioAvaliacaos).SingleOrDefault(x => x.Id == request.Id && x.Funcao == "Estudante");
+            Usuario estudante = _repository.AsQueryableString<Usuario>("Notas", "Media", "UsuarioAvaliacaos").SingleOrDefault(x => x.Id == request.Id && x.Funcao == "Estudante");
 
             //if (estudante == null) return null;
 

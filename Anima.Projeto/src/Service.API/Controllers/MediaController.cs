@@ -22,7 +22,7 @@ namespace Anima.Projeto.Service.API.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("estudante")]
         [Authorize(Roles = "Professor")]
         public IActionResult Add([FromBody] AddMediaRequest request)
         {

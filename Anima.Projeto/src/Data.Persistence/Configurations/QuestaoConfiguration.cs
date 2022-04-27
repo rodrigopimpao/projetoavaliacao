@@ -21,14 +21,12 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence.Configurations
 
             builder
                 .Property(x => x.AvaliacaoId)
-                .IsRequired()
                 .HasColumnName("AVALIACAO_ID");
 
             builder
                 .HasOne<Avaliacao>(s => s.Avaliacao)
                 .WithMany(g => g.Questaos)
-                .HasForeignKey(s => s.AvaliacaoId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(s => s.AvaliacaoId);
 
 
 

@@ -28,13 +28,15 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence.Configurations
             builder
                 .HasOne<Usuario>(sc => sc.Usuario)
                 .WithMany(s => s.UsuarioAvaliacaos)
-                .HasForeignKey(sc => sc.UsuarioId);
+                .HasForeignKey(sc => sc.UsuarioId)
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             builder
                 .HasOne<Avaliacao>(sc => sc.Avaliacao)
                 .WithMany(s => s.UsuarioAvaliacaos)
-                .HasForeignKey(sc => sc.AvaliacaoId);
-         
+                .HasForeignKey(sc => sc.AvaliacaoId)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
         }
 
 

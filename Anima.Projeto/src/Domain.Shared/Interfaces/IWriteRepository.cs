@@ -11,9 +11,11 @@ namespace Anima.Projeto.Domain.Shared.Interfaces
 
         void Commit();
 
-        void RemoveAsync<TEntity>(Guid id) where TEntity : Entity;
+        void Remove<TEntity>(Guid id) where TEntity : Entity;
 
         IQueryable<TEntity> AsQueryable<TEntity>(params Expression<Func<TEntity, object>>[] includes) where TEntity : Entity;
+
+        IQueryable<TEntity> AsQueryableString<TEntity>(params string[] includes) where TEntity : Entity;
 
     }
 }

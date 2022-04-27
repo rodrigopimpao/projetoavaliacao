@@ -35,6 +35,7 @@ namespace Anima.Projeto.Application.Queries
                 Nome = usuario.Nome,
                 Email = usuario.Email,
                 CPF = usuario.CPF,
+                Funcao = usuario.Funcao,
                 CreatedAt = usuario.CreatedAt,
                 IsActive = usuario.IsActive,
                 Login = usuario.Login,

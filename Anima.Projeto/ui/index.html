@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Avalia&ccedil;&atilde;o</title>
+    
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css">
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/ngstorage/ngStorage.min.js"></script>
+    
+
+    <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="./node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="./node_modules/angular-material/angular-material.min.js"></script>
+    <script src="./node_modules/tinymce/tinymce.min.js"></script>
+    <script src="./node_modules/angular-ui-tinymce/src/tinymce.js"></script>
+    
+    <script src="./node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+    <script src="./node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.js"></script>
+    -->
+    <script src="./js/dist/all.js"></script>
+
+</head>
+<body ng-app="app">
+    <div ng-cloak>
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Login">
+              <md-content class="md-padding">
+                <div id="login" ng-controller="LoginController">
+                    <div class="container">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12">
+                                    <form id="login-form" class="form" ng-init="load()">
+                                        <h3 class="text-center text-info">Login</h3>
+                                        
+                                        
+                                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+                                        
+                                        <div class="form-group">
+                                            <label for="username" class="text-info">Usu&aacute;rio:</label><br>
+                                            <input type="text" ng-model="login" name="login" id="login" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="text-info">Senha:</label><br>
+                                            <input type="password" ng-model="senha" name="senha" id="senha" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" id="enviar" class="btn btn-info btn-md" ng-click="logar()" value="Enviar">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+              </md-content>
+            </md-tab>
+            <md-tab label="Sign in">
+              <md-content class="md-padding">
+                <div id="login" ng-controller="LoginController">
+
+                    <div class="container">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12">
+                                    <form id="login-form" class="form" ng-init="load()">
+                                        <h3 class="text-center text-info">Sing In</h3>
+                                        
+                                        
+                                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+                                        
+                                        <div class="form-group">
+                                            <label for="nome" class="text-info">Nome:</label><br>
+                                            <input type="text" ng-model="nome" name="nome" id="nome" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="text-info">E-mail:</label><br>
+                                            <input type="text" ng-model="email" name="email" id="email" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cpf" class="text-info">CPF:</label><br>
+                                            <input type="text" ng-model="cpf" name="cpf" id="cpf" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="login" class="text-info">Login:</label><br>
+                                            <input type="text" ng-model="login" name="login" id="login" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="senha" class="text-info">Senha:</label><br>
+                                            <input type="password" ng-model="senha" name="senha" id="senha" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="funcao" class="text-info">Fun&ccedil;&atilde;o:</label><br>
+                                            <select id="funcao" name="funcao" ng-model="funcao" class="form-control">
+                                                <option value="Estudante" selected>Estudante</option>
+                                                <option value="Professor">Professor</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" id="enviar" class="btn btn-info btn-md" ng-click="save()" value="Enviar">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </div>
+
+
+
+</body>
+</html>

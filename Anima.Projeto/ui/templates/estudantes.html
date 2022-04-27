@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="box">
+        <div class="col-lg-12 text-center">
+            <h2 class="brand-before">
+                <small></small>
+            </h2>
+            <h1 class="brand-name" ng-show="tipoUsuario == 'Professor'">Estudantes</h1>
+            <h1 class="brand-name" ng-show="tipoUsuario == 'Estudante'">Meu Perfil</h1>
+            <hr class="tagline-divider">
+            <h2>
+                <small>
+                    <strong>{{user}}</strong>
+                </small>
+            </h2>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" ng-init="load()">
+
+    <div class="box">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">
+                Estudante
+            </h2>
+            <hr>
+        </div>
+<!--
+        <tbody ng-repeat="c in list">
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.nome}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.login}}</td>
+                <td>{{c.cpf}}</td>
+                <td>{{c.funcao}}</td>
+                <td>{{c.createdAt}}</td>
+                <td><button ng-click="remove(c.id)">Remover</button></td>
+                <td><button ng-click="edit(c.id)">Editar</button></td>
+            </tr>
+        </tbody>
+-->
+        <div ng-repeat="estudante in list">
+            <div class="col-sm-4">
+                <h3 ng-bind-html="estudante.nome"></h3>
+                <div ng-bind-html="estudante.email"></div>
+                <div>M&eacute;dia: {{estudante.media.total}}</div>
+                <a class="btn btn-link btn-sm pull-right" href="#!/estudante/{{estudante.id}}">More <i class="fa fa-angle-right"></i></a>
+                <a class="btn btn-link btn-sm pull-right" href="" ng-show="tipoUsuario == 'Professor' && estudante.media.total" ng-click="editMedia(estudante)">Editar M&eacute;dia<i class="fa fa-angle-right"></i></a>
+                <a class="btn btn-link btn-sm pull-right" href="" ng-show="tipoUsuario == 'Professor' && !estudante.media.total" ng-click="addMedia(estudante)">Adicionar M&eacute;dia<i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

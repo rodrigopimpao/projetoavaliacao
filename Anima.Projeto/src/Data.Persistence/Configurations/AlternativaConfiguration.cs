@@ -26,7 +26,6 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence.Configurations
 
             builder
                 .Property(x => x.QuestaoId)
-                .IsRequired()
                 .HasColumnName("QUESTAO_ID");
 
             builder

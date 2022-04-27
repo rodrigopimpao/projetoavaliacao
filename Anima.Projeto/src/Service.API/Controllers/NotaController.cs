@@ -23,7 +23,7 @@ namespace Anima.Projeto.Service.API.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "Professor")]
+        [Authorize]
         public IActionResult Add([FromBody] AddNotaRequest request)
         {
             

@@ -32,7 +32,21 @@ namespace Anima.Projeto.Infrastructure.Data.Persistence.Repositories
             return _context.Set<TEntity>();
         }
 
-        public void RemoveAsync<TEntity>(Guid id) where TEntity : Entity
+        public IQueryable<TEntity> AsQueryableString<TEntity>(params string[] includes) where TEntity : Entity
+        {
+
+            var query = _context.Set<TEntity>().AsNoTracking().AsQueryable();
+            if (includes != null)
+                includes.ToList().ForEach(include =>
+                {
+                    if (include != null)
+                        query = query.Include(include);
+                });
+
+            return query;
+        }
+
+        public void Remove<TEntity>(Guid id) where TEntity : Entity
         {
             var table = _context.Set<TEntity>();
 

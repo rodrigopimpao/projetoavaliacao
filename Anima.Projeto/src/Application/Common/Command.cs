@@ -19,7 +19,9 @@ namespace Anima.Projeto.Application.Common
         public virtual TResponse Handle(TRequest request)
         {
             var response = Changes(request);
-            _repository.Commit();
+
+            if(response.IsSuccess) _repository.Commit();
+
             return response;
         }        
     }

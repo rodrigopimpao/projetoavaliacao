@@ -26,8 +26,20 @@ namespace Anima.Projeto.Service.API.Controllers
         [Authorize(Roles = "Professor")]
         public IActionResult Add([FromBody] AddAlternativaRequest request)
         {
+            
             var cmd = new AddAlternativaCommand(_wrepository);
 
+            var response = cmd.Handle(request);
+
+            return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
+        }
+
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Professor")]
+        public IActionResult UpdateAlternativa(Guid id, UpdateAlternativaRequest request)
+        {
+            var cmd = new UpdateAlternativaCommand(_wrepository);
+            request.setId(id);
             var response = cmd.Handle(request);
 
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });

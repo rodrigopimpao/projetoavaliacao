@@ -29,7 +29,7 @@ namespace Anima.Projeto.Domain.Core.Entities
         public ICollection<RespostaEstudante> Respostas { get; set; }
 
         public ICollection<Nota> Notas { get; set; }
-        [JsonIgnore]
+        
         public Media Media { get; set; }
 
     }

@@ -53,12 +53,28 @@ namespace Anima.Projeto.Service.API.Controllers
 
             var query = new GetUsuarioListQuery(_rrepository);
 
-            var request = new GetUsuarioByIdRequest();
+            var request = new GetUsuarioListRequest();
 
             var response = query.Handle(request);
 
             return response.IsSuccess ? Ok(response) : BadRequest(new { errors = response.Errors });
         }
+
+
+        [HttpGet("funcao/{funcao}")]
+        [Authorize]
+        public IActionResult GetListFuncao([FromRoute] String funcao)
+        {
+
+            var query = new GetUsuarioListQuery(_rrepository);
+
+            var request = new GetUsuarioListRequest() { Funcao = funcao };
+
+            var response = query.Handle(request);
+
+            return response.IsSuccess ? Ok(response) : BadRequest(new { errors = response.Errors });
+        }
+
 
         [HttpPost("login")]
         public IActionResult Login(GetUsuarioByLoginRequest request)

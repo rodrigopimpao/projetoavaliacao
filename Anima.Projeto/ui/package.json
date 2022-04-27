@@ -1,0 +1,28 @@
+{
+  "name": "projeto-frontend",
+  "version": "1.0.0",
+  "description": "frontend do projeto para consumo da api",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx gulp build",
+    "build:watch": "npx gulp watch"
+  },
+  "author": "rodrigo.pimpao@animaeducacao.com.br",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-input-masks": "^4.4.1",
+    "angular-material": "^1.2.5",
+    "angular-route": "^1.8.3",
+    "angular-sanitize": "^1.8.3",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-tinymce": "^0.0.19",
+    "jquery": "^3.6.0",
+    "ngstorage": "^0.3.11",
+    "tinymce": "^6.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1"
+  }
+}

@@ -21,7 +21,7 @@ namespace Anima.Projeto.Service.API.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Professor")]
+        [Authorize]
         public IActionResult GetById([FromRoute] Guid id)
         {
             var query = new GetEstudanteByIdQuery(_rrepository);

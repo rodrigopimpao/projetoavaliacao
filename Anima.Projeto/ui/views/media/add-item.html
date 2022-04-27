@@ -1,0 +1,25 @@
+<form class="form-horizontal" role="form" ng-controller="EstudantesCtrl" ng-submit="submitItem()">
+    <div class="modal-header">
+      <h3 class="modal-title">Adicionar Avalia&ccedil;&atilde;o</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Estudante</label>
+        <div class="col-sm-5">
+          <div>{{item.nome}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">M&eacute;dia</label>
+        <div class="col-sm-5">
+          <input type="hidden" class="form-control" placeholder="id" ng-model="item.id">
+          <input type="hidden" class="form-control" placeholder="mediaId" ng-model="item.media.id">
+          <input type="text" class="form-control" placeholder="media" ng-model="item.media.total">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-primary" type="submit">Adicionar</button>
+    </div>
+</form>

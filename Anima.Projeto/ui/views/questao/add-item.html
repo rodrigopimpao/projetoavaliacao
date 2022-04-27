@@ -1,0 +1,19 @@
+<form class="form-horizontal" role="form" ng-controller="AvaliacaoCtrl" ng-submit="submitItem()">
+    <div class="modal-header">
+      <h3 class="modal-title">Adicionar Quest&atilde;o</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Enunciado</label>
+        <div class="col-sm-5">
+          <input type="hidden" class="form-control" placeholder="avaliacaoId" ng-model="item.id">
+          <textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Enunciado" ng-model="item.enunciado"></textarea>
+          
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-primary" type="submit">Adicionar</button>
+    </div>
+</form>

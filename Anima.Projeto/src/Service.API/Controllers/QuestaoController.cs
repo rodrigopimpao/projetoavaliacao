@@ -33,6 +33,17 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
         }
 
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Professor")]
+        public IActionResult UpdateQuestao(Guid id, UpdateQuestaoRequest request)
+        {
+            var cmd = new UpdateQuestaoCommand(_wrepository);
+            request.setId(id);
+            var response = cmd.Handle(request);
+
+            return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
+        }
+
         [HttpGet]
         [Authorize(Roles = "Professor")]
         public IActionResult GetList()

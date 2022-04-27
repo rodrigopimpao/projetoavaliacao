@@ -33,8 +33,19 @@ namespace Anima.Projeto.Service.API.Controllers
             return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
         }
 
-        [HttpGet]
+        [HttpPut("{id}")]
         [Authorize(Roles = "Professor")]
+        public IActionResult UpdateAvaliacao(Guid id, UpdateAvaliacaoRequest request)
+        {
+            var cmd = new UpdateAvaliacaoCommand(_wrepository);
+            request.setId(id);
+            var response = cmd.Handle(request);
+
+            return response.IsSuccess ? Created("", response) : NotFound(new { errors = response.Errors });
+        }
+
+        [HttpGet]
+        [Authorize]
         public IActionResult GetList()
         {
 
@@ -60,6 +71,19 @@ namespace Anima.Projeto.Service.API.Controllers
 
             return response.IsSuccess ? Ok(response) : NotFound(new { errors = response.Errors });
 
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Professor")]
+        public IActionResult RemoveById([FromRoute] Guid id)
+        {
+            var cmd = new RemoveAvaliacaoCommand(_wrepository);
+
+            var request = new RemoveAvaliacaoRequest() { Id = id };
+
+            var response = cmd.Handle(request);
+
+            return Ok();
         }
     }
 }
