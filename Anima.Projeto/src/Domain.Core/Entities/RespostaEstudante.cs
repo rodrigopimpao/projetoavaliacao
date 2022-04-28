@@ -6,6 +6,16 @@ namespace Anima.Projeto.Domain.Core.Entities
 {
     public class RespostaEstudante : Entity
     {
+
+        private RespostaEstudante() { }
+
+        public RespostaEstudante(Guid questaoId, Guid usuarioId, Guid alternativaId) : base(Guid.NewGuid())
+        {
+            QuestaoId = questaoId;
+            UsuarioId = usuarioId;
+            AlternativaId = alternativaId;
+        }
+
         [JsonIgnore]
         public Guid UsuarioId { get; set; }
         [JsonIgnore]

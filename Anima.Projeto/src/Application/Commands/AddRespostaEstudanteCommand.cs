@@ -17,12 +17,8 @@ namespace Anima.Projeto.Application.Commands
         protected override AddRespostaEstudanteResponse Changes(AddRespostaEstudanteRequest request)
         {
 
-            var resposta = new RespostaEstudante();
-
-            resposta.UsuarioId = request.UsuarioId;
-            resposta.QuestaoId = request.QuestaoId;
-            resposta.AlternativaId = request.AlternativaId;
-
+            var resposta = new RespostaEstudante(request.QuestaoId, request.UsuarioId, request.AlternativaId);
+             
             _repository.Add(resposta);
 
             return new AddRespostaEstudanteResponse

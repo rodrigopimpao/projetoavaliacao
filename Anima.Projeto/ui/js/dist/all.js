@@ -67,11 +67,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 app.controller('AvaliacaoCtrl', function ($scope, $location, $http, $localStorage, $routeParams, $uibModal, $window, config) {
     
-    //alert($routeParams.id)
-    //alert($localStorage.usuario.token)
-
-    
-
     const route = config.baseUrl + "/Avaliacao/"+$routeParams.id
     let me = $scope
 
@@ -104,7 +99,10 @@ app.controller('AvaliacaoCtrl', function ($scope, $location, $http, $localStorag
         .then(response => { 
             var avaliacao = response.data
             me.avaliacao = avaliacao
+            var teste = me.avaliacao.questaos
             
+            console.log(me.avaliacao.questaos)
+            console.log(teste.enunciado)
             if (me.tipoUsuario == 'Estudante') {
                 var nota = avaliacao.notas.filter(function (el)
                 {
