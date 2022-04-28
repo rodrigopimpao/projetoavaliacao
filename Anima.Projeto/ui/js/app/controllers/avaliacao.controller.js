@@ -1,10 +1,5 @@
 app.controller('AvaliacaoCtrl', function ($scope, $location, $http, $localStorage, $routeParams, $uibModal, $window, config) {
     
-    //alert($routeParams.id)
-    //alert($localStorage.usuario.token)
-
-    
-
     const route = config.baseUrl + "/Avaliacao/"+$routeParams.id
     let me = $scope
 
